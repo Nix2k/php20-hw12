@@ -1,8 +1,4 @@
 <?php
-	function clearInput($input) {
-		return htmlspecialchars(strip_tags($input));
-	}
-
 	require_once './db-config.php';
 	
 	try {
@@ -14,9 +10,9 @@
 	$sql = "SELECT * FROM books";
 
 	if (isset($_GET['search'])) {
-		foreach ($_GET as $key => $value) {
+		/*foreach ($_GET as $key => $value) {
 			$_GET[$key] = clearInput($value);
-		}
+		}*/
 		if (isset($_GET['name'])) {
 			$sql = $sql . 'WHERE name=' . $_GET['name'];
 		}
