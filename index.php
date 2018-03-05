@@ -33,11 +33,11 @@
 					$sql = $sql . " AND `author`='". $_GET['author']."'";
 				}
 			}
-		}
-		else {
-			if ((isset($_GET['author']))&&($_GET['author']!='')) {
+			else {
+				if ((isset($_GET['author']))&&($_GET['author']!='')) {
 					$sql = $sql . " WHERE `author`='". $_GET['author']."'";
 				}
+			}
 		}
 	}
 
