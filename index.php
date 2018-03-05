@@ -17,27 +17,15 @@
 		foreach ($_GET as $key => $value) {
 			$_GET[$key] = clearInput($value);
 		}
+		$sql = $sql . ' WHERE 1=1';
 		if ((isset($_GET['isbn']))&&($_GET['isbn']!='')) {
-			$sql = $sql . " WHERE `isbn`='". $_GET['isbn']."'";
-			if ((isset($_GET['name']))&&($_GET['name']!='')) {
-				$sql = $sql . " AND `name`='". $_GET['name']."'";
-				if ((isset($_GET['author']))&&($_GET['author']!='')) {
-					$sql = $sql . " AND `author`='". $_GET['author']."'";
-				}
-			}
+			$sql = $sql . " AND `isbn` like '". $_GET['isbn']."'";
 		}
-		else {
-			if ((isset($_GET['name']))&&($_GET['name']!='')) {
-				$sql = $sql . " WHERE `name`='". $_GET['name']."'";
-				if ((isset($_GET['author']))&&($_GET['author']!='')) {
-					$sql = $sql . " AND `author`='". $_GET['author']."'";
-				}
-			}
-			else {
-				if ((isset($_GET['author']))&&($_GET['author']!='')) {
-					$sql = $sql . " WHERE `author`='". $_GET['author']."'";
-				}
-			}
+		if ((isset($_GET['name']))&&($_GET['name']!='')) {
+			$sql = $sql . " AND `name` like '". $_GET['name']."'";
+		}
+		if ((isset($_GET['author']))&&($_GET['author']!='')) {
+			$sql = $sql . " AND `author` like '". $_GET['author']."'";
 		}
 	}
 
