@@ -19,14 +19,26 @@
 		}
 		if ((isset($_GET['isbn']))&&($_GET['isbn']!='')) {
 			$sql = $sql . " WHERE `isbn`='". $_GET['isbn']."'";
+			if ((isset($_GET['name']))&&($_GET['name']!='')) {
+				$sql = $sql . " AND `name`='". $_GET['name']."'";
+				if ((isset($_GET['author']))&&($_GET['author']!='')) {
+					$sql = $sql . " AND `author`='". $_GET['author']."'";
+				}
+			}
 		}
-		if ((isset($_GET['name']))&&($_GET['name']!='')) {
-			$sql = $sql . " AND `name`='". $_GET['name']."'";
+		else {
+			if ((isset($_GET['name']))&&($_GET['name']!='')) {
+				$sql = $sql . " WHERE `name`='". $_GET['name']."'";
+				if ((isset($_GET['author']))&&($_GET['author']!='')) {
+					$sql = $sql . " AND `author`='". $_GET['author']."'";
+				}
+			}
 		}
-		if ((isset($_GET['author']))&&($_GET['author']!='')) {
-			$sql = $sql . " AND `author`='". $_GET['author']."'";
+		else {
+			if ((isset($_GET['author']))&&($_GET['author']!='')) {
+					$sql = $sql . " WHERE `author`='". $_GET['author']."'";
+				}
 		}
-		echo($sql);
 	}
 
 	
