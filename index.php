@@ -13,8 +13,9 @@
 		/*foreach ($_GET as $key => $value) {
 			$_GET[$key] = clearInput($value);
 		}*/
-		if (isset($_GET['name'])) {
-			$sql = $sql . 'WHERE name=' . $_GET['name'];
+		if ((isset($_GET['name']))&&($_GET['name']!='')) {
+			$sql = $sql . ' WHERE name=`'. $_GET['name'].'`';
+			echo($sql);
 		}
 	}
 
