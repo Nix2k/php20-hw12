@@ -7,14 +7,14 @@
     	echo 'Подключение не удалось: ' . $e->getMessage();
 	}
 
-	$sql = "SELECT * FROM books";
+	$sql = "SELECT * FROM `books`";
 
 	if (isset($_GET['search'])) {
 		/*foreach ($_GET as $key => $value) {
 			$_GET[$key] = clearInput($value);
 		}*/
-		if ((isset($_GET['name']))&&($_GET['name']!='')) {
-			$sql = $sql . ' WHERE name=`'. $_GET['name'].'`';
+		if ((isset($_GET['isbn']))&&($_GET['isbn']!='')) {
+			$sql = $sql . " WHERE `isbn`='". $_GET['isbn']."'";
 			echo($sql);
 		}
 	}
