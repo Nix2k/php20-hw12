@@ -19,13 +19,13 @@
 		}
 		$sql = $sql . ' WHERE 1=1';
 		if ((isset($_GET['isbn']))&&($_GET['isbn']!='')) {
-			$sql = $sql . " AND `isbn` like '". $_GET['isbn']."'";
+			$sql = $sql . " AND `isbn` like '%". $_GET['isbn']."%'";
 		}
 		if ((isset($_GET['name']))&&($_GET['name']!='')) {
-			$sql = $sql . " AND `name` like '". $_GET['name']."'";
+			$sql = $sql . " AND `name` like '%". $_GET['name']."%'";
 		}
 		if ((isset($_GET['author']))&&($_GET['author']!='')) {
-			$sql = $sql . " AND `author` like '". $_GET['author']."'";
+			$sql = $sql . " AND `author` like '%". $_GET['author']."%'";
 		}
 	}
 
@@ -46,9 +46,9 @@
 <h1>Перечень книг</h1>
 
 <form action="index.php" method="GET">
-	Название: <input type="text" name="name"><br>
-	Автор: <input type="text" name="author"><br>
-	ISBN: <input type="text" name="isbn"><br>
+	Название: <input type="text" name="name" <?php if (isset($_GET['name'])) echo ' value="'.$_GET['name'].'"';?> ><br>
+	Автор: <input type="text" name="author" <?php if (isset($_GET['author'])) echo ' value="'.$_GET['author'].'"';?> ><br>
+	ISBN: <input type="text" name="isbn" <?php if (isset($_GET['isbn'])) echo ' value="'.$_GET['isbn'].'"';?> ><br>
 	<input type="submit" name="search" value="Поиск"><br>
 </form>
 
